@@ -18,6 +18,17 @@ namespace MovieViewing
         private string director;
         private string cast;
 
+        /// <summary>
+        /// Test Update
+        /// </summary>
+        /// <param name="movieIn"></param>
+        /// <param name="titleIn"></param>
+        /// <param name="genreIn"></param>
+        /// <param name="runTimeIn"></param>
+        /// <param name="posterIn"></param>
+        /// <param name="ticketPriceIn"></param>
+        /// <param name="directorIn"></param>
+        /// <param name="castIn"></param>
         public Movie(string movieIn, string titleIn, string genreIn, string runTimeIn, Image posterIn, double ticketPriceIn
             , string directorIn, string castIn)
         {
