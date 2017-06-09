@@ -41,6 +41,7 @@ namespace MovieViewing
         public Login()
         {
             InitializeComponent();
+            tbPassword.PasswordChar = '●';
         }
 
         private void Login_Load(object sender, EventArgs e)

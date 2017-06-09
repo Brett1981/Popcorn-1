@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using System.Configuration;
+
 
 namespace MovieViewing
 {
@@ -18,6 +20,7 @@ namespace MovieViewing
 
         //movie listing connection string
         private static string connStringMovieListing = "Server=COB11PC;Database=Popcorn;Trusted_Connection=True;";
+        
         public static string getConnString()
         {
             return connStringMovieListing;
@@ -51,10 +54,7 @@ namespace MovieViewing
             createMovieList();
             showMovie();
             MovieID = Convert.ToInt32(getSelMovieId());
-
-
-           
-            lblUser.Text = Login.getUserName();
+            lblName.Text = Login.getUserName();
         }
         public void createMovieList()
         {
@@ -217,11 +217,11 @@ namespace MovieViewing
          * */
         private void populateSessionList(string movieIdIn)
         {
-           
-            using (SqlConnection conn = new SqlConnection(@"Server=COB11PC;Database=Popcorn;Trusted_Connection=yes;"))
+
+            using (SqlConnection conn = new SqlConnection(getConnString()))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Select Time from Session where Movie_ID ="+movieIdIn, conn);
+                SqlCommand cmd = new SqlCommand("Select Time from Session where Movie_ID =" + movieIdIn, conn);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -236,10 +236,10 @@ namespace MovieViewing
         {
             TimeSpan session = TimeSpan.Parse(cbSession.SelectedItem.ToString());
             int id =0;
-            using (SqlConnection conn = new SqlConnection(@"Server=COB11PC;Database=Popcorn;Trusted_Connection=yes;"))
+            using (SqlConnection conn = new SqlConnection(getConnString()))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Select Session_ID from Session where Movie_ID =" + MovieID + " and Time ='" + session+":00'", conn);
+                SqlCommand cmd = new SqlCommand("Select Session_ID from Session where Movie_ID =" + MovieID + " and Time ='" + session + ":00'", conn);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -393,7 +393,7 @@ namespace MovieViewing
                 DialogResult dialogResult = MessageBox.Show("Confirm", "Remove Movie", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    using (SqlConnection conn = new SqlConnection(@"Server=COB11PC;Database=Popcorn;Trusted_Connection=yes;"))
+                    using (SqlConnection conn = new SqlConnection(getConnString()))
                     {
                         conn.Open();
                         SqlCommand cmd = new SqlCommand("Delete from Session where Movie_ID=" + MovieID, conn);
@@ -403,14 +403,12 @@ namespace MovieViewing
                         conn.Close();
                     }
 
-                    using (SqlConnection conn = new SqlConnection(@"Server=COB11PC;Database=Popcorn;Trusted_Connection=yes;"))
+                    using (SqlConnection conn = new SqlConnection(getConnString()))
                     {
                         conn.Open();
                         SqlCommand cmd = new SqlCommand("Delete from Movie where Movie_ID=" + MovieID, conn);
                         {
-
                             cmd.ExecuteNonQuery();
-                         
                         }
                         conn.Close();
                     }
@@ -436,8 +434,5 @@ namespace MovieViewing
             RemoveUser frm = new RemoveUser();
             frm.ShowDialog();
         }
-
-
-
     }
 }

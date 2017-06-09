@@ -258,7 +258,9 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.metroButton19);
             this.Controls.Add(this.txtTicket);
+            this.MaximizeBox = false;
             this.Name = "Receipt";
+            this.Resizable = false;
             this.Text = "Receipt";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

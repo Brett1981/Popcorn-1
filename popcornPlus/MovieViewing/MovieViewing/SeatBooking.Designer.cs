@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.lblName = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroTile5 = new MetroFramework.Controls.MetroTile();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -59,19 +59,17 @@
             this.tablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.picBoxLogo = new System.Windows.Forms.PictureBox();
-            this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.txtTime = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // metroLabel1
+            // lblName
             // 
-            this.metroLabel1.Location = new System.Drawing.Point(65, 31);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(110, 20);
-            this.metroLabel1.TabIndex = 36;
-            this.metroLabel1.Text = "GABOR";
+            this.lblName.Location = new System.Drawing.Point(26, 31);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(110, 20);
+            this.lblName.TabIndex = 36;
             // 
             // metroLabel2
             // 
@@ -414,16 +412,6 @@
             this.picBoxLogo.TabIndex = 39;
             this.picBoxLogo.TabStop = false;
             // 
-            // metroButton4
-            // 
-            this.metroButton4.BackgroundImage = global::MovieViewing.Properties.Resources.Saki_NuoveXT_2_Apps_session_logout;
-            this.metroButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.metroButton4.Location = new System.Drawing.Point(23, 20);
-            this.metroButton4.Name = "metroButton4";
-            this.metroButton4.Size = new System.Drawing.Size(36, 31);
-            this.metroButton4.TabIndex = 35;
-            this.metroButton4.UseSelectable = true;
-            // 
             // txtTime
             // 
             // 
@@ -492,11 +480,10 @@
             this.Controls.Add(this.metroTile5);
             this.Controls.Add(this.picBoxLogo);
             this.Controls.Add(this.metroLabel2);
-            this.Controls.Add(this.metroLabel1);
-            this.Controls.Add(this.metroButton4);
+            this.Controls.Add(this.lblName);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "SeatBooking";
+            this.Resizable = false;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).EndInit();
             this.ResumeLayout(false);
@@ -505,8 +492,7 @@
 
         #endregion
 
-        private MetroFramework.Controls.MetroButton metroButton4;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel lblName;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private System.Windows.Forms.PictureBox picBoxLogo;
         private MetroFramework.Controls.MetroTile metroTile5;

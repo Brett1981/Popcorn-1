@@ -40,6 +40,7 @@ namespace MovieViewing
             setTitle();
             generateButtons();
             picBoxLogo.Image = MovieListing.getImage();
+            lblName.Text = Login.getUserName();
            // cmbSession.SelectedIndex = 0;
         }  
         

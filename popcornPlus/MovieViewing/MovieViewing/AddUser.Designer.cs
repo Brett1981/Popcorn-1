@@ -214,7 +214,9 @@
             this.Controls.Add(this.tbLoginName);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUserName);
+            this.MaximizeBox = false;
             this.Name = "AddUser";
+            this.Resizable = false;
             this.Text = "AddUser";
             this.Load += new System.EventHandler(this.AddUser_Load_1);
             this.ResumeLayout(false);

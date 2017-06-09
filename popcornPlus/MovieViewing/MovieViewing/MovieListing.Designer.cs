@@ -52,6 +52,7 @@
             this.movieListingPanel = new MetroFramework.Controls.MetroPanel();
             this.lblUser = new MetroFramework.Controls.MetroLabel();
             this.btnLogOff = new MetroFramework.Controls.MetroButton();
+            this.lblName = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // lblSession
@@ -262,7 +263,7 @@
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(42, 26);
+            this.lblUser.Location = new System.Drawing.Point(-8, -24);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(0, 0);
             this.lblUser.TabIndex = 74;
@@ -277,11 +278,20 @@
             this.btnLogOff.TabIndex = 64;
             this.btnLogOff.UseSelectable = true;
             // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(42, 23);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(0, 0);
+            this.lblName.TabIndex = 75;
+            // 
             // MovieListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.movieListingPanel);
             this.Controls.Add(this.lblSession);
@@ -306,6 +316,7 @@
             this.Controls.Add(this.metroTile5);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
+            this.MaximizeBox = false;
             this.Name = "MovieListing";
             this.Text = "MovieListing";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
@@ -341,6 +352,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroPanel movieListingPanel;
         private MetroFramework.Controls.MetroLabel lblUser;
+        private MetroFramework.Controls.MetroLabel lblName;
 
     }
 }

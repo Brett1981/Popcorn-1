@@ -329,7 +329,9 @@
             this.Controls.Add(this.txtGenre);
             this.Controls.Add(this.txtRunTime);
             this.Controls.Add(this.txtMovieID);
+            this.MaximizeBox = false;
             this.Name = "EditMovie";
+            this.Resizable = false;
             this.Text = "EditMovie";
             this.Load += new System.EventHandler(this.EditMovie_Load);
             this.ResumeLayout(false);

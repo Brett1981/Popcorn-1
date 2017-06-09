@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using System.Data.SqlClient;
 
+
 namespace MovieViewing
 {
     public partial class RemoveUser : MetroFramework.Forms.MetroForm
@@ -42,7 +43,7 @@ namespace MovieViewing
 
                 while (rdr.Read())
                 {
-                    id = (rdr["Employee_ID"].ToString());
+                   
                     name = (rdr["Name"].ToString());
                     idName = id + name;
                     cbEmployee.Items.Add(idName);
@@ -52,6 +53,7 @@ namespace MovieViewing
             {
                 MessageBox.Show(ex.Message);
             }
+            cbEmployee.SelectedIndex = 0;
         }
 
         private void RemoveUser_Load_1(object sender, EventArgs e)
@@ -66,26 +68,31 @@ namespace MovieViewing
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            idName = new string(idName.Where(x => char.IsDigit(x)).ToArray());
-
-            MessageBox.Show(idName);
-
-            SqlConnection conn = null;
-
-            try
+           
+            DialogResult dialogResult = MessageBox.Show("Remove User "+cbEmployee.SelectedItem.ToString()+"!", "Confirm", MessageBoxButtons.YesNo);
+            //MetroMessageBox.Show(this, "User Addedd", "Message");
+            if (dialogResult == DialogResult.Yes)
             {
-                conn = new SqlConnection(MovieListing.getConnString());
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("sp_removeUser1", conn);
-                cmd.Parameters.Add(new SqlParameter("@employeeId", idName));
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            populateUserList();
+                idName = new string(idName.Where(x => char.IsDigit(x)).ToArray());
+                SqlConnection conn = null;
+
+                try
+                {
+                    conn = new SqlConnection(MovieListing.getConnString());
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("sp_removeUser1", conn);
+                    cmd.Parameters.Add(new SqlParameter("@employeeId", idName));
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                populateUserList();
+                
+            } 
+            
         }
     }
 }
