@@ -136,5 +136,12 @@ namespace MovieViewing
             Application.Exit();
         }
 
+        private void tbUserName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                btnLogin_Click(this, new EventArgs());
+            }
+        }
     }
 }
