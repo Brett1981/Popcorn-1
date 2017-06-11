@@ -27,7 +27,7 @@ namespace MovieViewing
         private TimeSpan time2;
         private TimeSpan time3;
         private string imagePath;
-        private string connString = "Server=COB11PC;Database=Popcorn;Trusted_Connection=True;";
+        private string connString = @"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=True;";
         private List<string> sessions = new List<string>();
 
         public AddMovie()
@@ -87,7 +87,7 @@ namespace MovieViewing
             for (int i = 0; i < getNumberOfSeats(); i++)
             {
                 Seat seat = new Seat(seatPlanID, false, (i + 1));
-                using (SqlConnection conn = new SqlConnection(@"Server=COB11PC;Database=Popcorn;Trusted_Connection=yes;"))
+                using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("Insert into Seat (Number, Reserved, SeatPlan_ID) values(@num, @res, @plan_ID )", conn);
@@ -104,7 +104,7 @@ namespace MovieViewing
         }
         public void addSeatPlan()
         {
-            using (SqlConnection conn = new SqlConnection(@"Server=COB11PC;Database=Popcorn;Trusted_Connection=yes;"))
+            using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Insert into SeatPLan(Auditorium_ID) values(@audit)", conn);
@@ -185,7 +185,7 @@ namespace MovieViewing
         }
         public int getNumberOfSeats()
         {
-            using (SqlConnection conn = new SqlConnection(@"Server=COB11PC;Database=Popcorn;Trusted_Connection=yes;"))
+            using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
             {
                 conn.Open();
 
@@ -202,7 +202,7 @@ namespace MovieViewing
 
         public int getSeatPlanID()
         {
-            using (SqlConnection conn = new SqlConnection(@"Server=COB11PC;Database=Popcorn;Trusted_Connection=yes;"))
+            using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
             {
                 conn.Open();
 

@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MetroFramework.Forms;
 using System.Drawing.Printing;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
 namespace MovieViewing
@@ -19,7 +11,7 @@ namespace MovieViewing
         private PrintDocument doc = new PrintDocument();
         private Font printFont;
         private StreamReader streamToPrint;
-        string dir = @"E:\Project\popcornPlus\Receipt.txt";
+        string dir = @"C:\Users\Darius\Desktop\Github\popcornPlus\Receipt.txt";
         private string[] lines = { "Title\n", "Screen\n", "RunTime", "Seat", "Date", "Ticket Price", "Total" };
         public Receipt()
         {

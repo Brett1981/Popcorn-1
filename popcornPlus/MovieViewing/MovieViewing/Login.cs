@@ -52,15 +52,15 @@ namespace MovieViewing
 
         public string login()
         {
-            SqlConnection conn = null;
+            //SqlConnection conn = null;
             SqlDataReader rdr = null;
             string result = null;
 
             try
             {
-                conn = new SqlConnection(MovieListing.getConnString());
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("sp_logIn4", conn);
+                //conn = new SqlConnection(MovieListing.getConnString());
+               // conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_logIn4", MovieListing.useConnection());
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -103,7 +103,9 @@ namespace MovieViewing
             {
                 MessageBox.Show(ex.Message);
             }
+            MovieListing.useConnection().Close();// Close Connection
             return result;
+           
         }
 
         private void tbPassword_KeyPress(object sender, KeyPressEventArgs e)

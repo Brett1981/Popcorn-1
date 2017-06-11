@@ -29,14 +29,14 @@ namespace MovieViewing
         {
             cbEmployee.Items.Clear();
 
-            SqlConnection conn = null;
+           // SqlConnection conn = null;
             SqlDataReader rdr = null;
 
             try
             {
-                conn = new SqlConnection(MovieListing.getConnString());
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("sp_showAllUsers", conn);
+                //conn = new SqlConnection(MovieListing.getConnString());
+               // conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_showAllUsers", MovieListing.useConnection());
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
                 rdr = cmd.ExecuteReader();
@@ -48,6 +48,7 @@ namespace MovieViewing
                     idName = id + name;
                     cbEmployee.Items.Add(idName);
                 }
+                MovieListing.useConnection().Close();
             }
             catch (Exception ex)
             {
@@ -74,17 +75,19 @@ namespace MovieViewing
             if (dialogResult == DialogResult.Yes)
             {
                 idName = new string(idName.Where(x => char.IsDigit(x)).ToArray());
-                SqlConnection conn = null;
+                // SqlConnection conn = null;
 
                 try
                 {
-                    conn = new SqlConnection(MovieListing.getConnString());
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("sp_removeUser1", conn);
+                    //conn = new SqlConnection(MovieListing.getConnString());
+                    //conn.Open();
+                    SqlCommand cmd = new SqlCommand("sp_removeUser1", MovieListing.useConnection());
                     cmd.Parameters.Add(new SqlParameter("@employeeId", idName));
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
+                    MovieListing.useConnection().Close();
                 }
+
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);

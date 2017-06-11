@@ -97,10 +97,11 @@ namespace MovieViewing
         // Connect to the database.
         public void connect()
         {
-            using (SqlConnection conn = new SqlConnection(@"Server=COB11PC;Database=Popcorn;Trusted_Connection=yes;"))
+            //using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
+            using(MovieListing.useConnection())
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("Select * from Session where Movie_ID ="+MovieListing.MovieID+" and Session_ID = "+MovieListing.SessionID, conn);
+               // conn.Open();
+                SqlCommand cmd = new SqlCommand("Select * from Session where Movie_ID ="+MovieListing.MovieID+" and Session_ID = "+MovieListing.SessionID, MovieListing.useConnection());
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -112,15 +113,16 @@ namespace MovieViewing
                     temp.AuditoriumID = Convert.ToInt32(reader["Auditorium_ID"]);
                     sessionList.Add(temp);
                 }//End while
-                conn.Close();
+                MovieListing.useConnection().Close();
             }
         }
         public void generateSeats()
         {
-            using (SqlConnection conn = new SqlConnection(@"Server=COB11PC;Database=Popcorn;Trusted_Connection=yes;"))
+            //using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
+            using(MovieListing.useConnection())
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("Select Seat.Seat_ID, Seat.Reserved, Seat.SeatPlan_ID, Seat.Number from(Session inner join Seat on Session.SeatPlan_ID =Seat.SeatPlan_ID and Session.Session_ID ="+MovieListing.SessionID+")", conn);
+                //conn.Open();
+                SqlCommand cmd = new SqlCommand("Select Seat.Seat_ID, Seat.Reserved, Seat.SeatPlan_ID, Seat.Number from(Session inner join Seat on Session.SeatPlan_ID =Seat.SeatPlan_ID and Session.Session_ID ="+MovieListing.SessionID+")", MovieListing.useConnection());
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -132,7 +134,7 @@ namespace MovieViewing
                     seatList.Add(seat);
                     
                 }//End while
-                conn.Close();
+                MovieListing.useConnection().Close();
             }
         }
         private void metroButton19_Click(object sender, EventArgs e)
@@ -150,10 +152,11 @@ namespace MovieViewing
        
         public void setTitle()
         {
-            using (SqlConnection conn = new SqlConnection(@"Server=COB11PC;Database=Popcorn;Trusted_Connection=yes;"))
+            //using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
+            using(MovieListing.useConnection())
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("Select * from Movie where Movie_ID = "+MovieListing.MovieID, conn);
+                //conn.Open();
+                SqlCommand cmd = new SqlCommand("Select * from Movie where Movie_ID = "+MovieListing.MovieID, MovieListing.useConnection());
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -161,7 +164,7 @@ namespace MovieViewing
                     runTime = reader["RunTime"].ToString();
                     price = Convert.ToDecimal(reader["Price"]);
                 }//End while
-                conn.Close();
+                MovieListing.useConnection().Close();
                 foreach (Session i in sessionList)
                 {
                     lblScreen.Text = i.AuditoriumID.ToString();
@@ -188,15 +191,16 @@ namespace MovieViewing
             private void updateSeats()
             {
                 foreach(Seat i in seatList){
-                    using (SqlConnection conn = new SqlConnection(@"Server=COB11PC;Database=Popcorn;Trusted_Connection=yes;"))
+                    //using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
+                    using(MovieListing.useConnection())
                     {
-                        conn.Open();
-                        SqlCommand cmd = new SqlCommand("update seat set Reserved =@res where Seat_ID = @ID", conn);
+                   // conn.Open();
+                        SqlCommand cmd = new SqlCommand("update seat set Reserved =@res where Seat_ID = @ID", MovieListing.useConnection());
                         {
                             cmd.Parameters.AddWithValue("@res", i.Reserved);
                             cmd.Parameters.AddWithValue("@id", i.ID);
                             cmd.ExecuteNonQuery();
-                            conn.Close(); ;
+                        MovieListing.useConnection().Close(); ;
                         }   
                     }
                 }

@@ -26,16 +26,16 @@ namespace MovieViewing
 
         private void addUser()
         {
-            SqlConnection conn = null;
+           // SqlConnection conn = null;
 
             try
             {
-                conn = new SqlConnection(MovieListing.getConnString());
+               // conn = new SqlConnection(MovieListing.getConnString());
 
-                SqlCommand cmd = new SqlCommand("sp_addUser2", conn);
+                SqlCommand cmd = new SqlCommand("sp_addUser2", MovieListing.useConnection());
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                conn.Open();
+              //  conn.Open();
 
                 cmd.Parameters.Add(new SqlParameter("@username", LoginName));
                 cmd.Parameters.Add(new SqlParameter("@password", password));
@@ -43,6 +43,7 @@ namespace MovieViewing
                 cmd.Parameters.Add(new SqlParameter("@name", name));
 
                 cmd.ExecuteNonQuery();
+                MovieListing.useConnection().Close();
             }
 
             catch (Exception e)

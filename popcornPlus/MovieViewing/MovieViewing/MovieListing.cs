@@ -19,8 +19,14 @@ namespace MovieViewing
     {
 
         //movie listing connection string
-        private static string connStringMovieListing = "Server=COB11PC;Database=Popcorn;Trusted_Connection=True;";
-        
+        private static string connStringMovieListing = @"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=True;";
+        public static SqlConnection useConnection()// Return SQLiteConnection Object
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connection"].ConnectionString);
+            conn.Open();
+            return conn;
+        }
+
         public static string getConnString()
         {
             return connStringMovieListing;
@@ -58,13 +64,13 @@ namespace MovieViewing
         }
         public void createMovieList()
         {
-            SqlConnection conn = null;
+           // SqlConnection conn = null;
             SqlDataReader rdr = null;
             try
             {
-                conn = new SqlConnection(getConnString());
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("sp_movieList1", conn);
+               // conn = new SqlConnection(getConnString());
+               // conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_movieList1", useConnection());
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
                 rdr = cmd.ExecuteReader();
@@ -81,6 +87,7 @@ namespace MovieViewing
 
                     ml.Add(movie);
                 }
+                useConnection().Close();
             }
             catch (Exception ex)
             {
@@ -218,17 +225,18 @@ namespace MovieViewing
         private void populateSessionList(string movieIdIn)
         {
 
-            using (SqlConnection conn = new SqlConnection(getConnString()))
+            //using (SqlConnection conn = new SqlConnection(getConnString()))
+            using(useConnection())
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("Select Time from Session where Movie_ID =" + movieIdIn, conn);
+               // conn.Open();
+                SqlCommand cmd = new SqlCommand("Select Time from Session where Movie_ID =" + movieIdIn, useConnection());
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     DateTime time = Convert.ToDateTime(reader["Time"].ToString());
                     cbSession.Items.Add(time.ToShortTimeString());
                 }//End while
-                conn.Close();
+                useConnection().Close();
             }
         }
          
@@ -236,17 +244,18 @@ namespace MovieViewing
         {
             TimeSpan session = TimeSpan.Parse(cbSession.SelectedItem.ToString());
             int id =0;
-            using (SqlConnection conn = new SqlConnection(getConnString()))
+            //using (SqlConnection conn = new SqlConnection(getConnString()))
+            using(useConnection())
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("Select Session_ID from Session where Movie_ID =" + MovieID + " and Time ='" + session + ":00'", conn);
+               // conn.Open();
+                SqlCommand cmd = new SqlCommand("Select Session_ID from Session where Movie_ID =" + MovieID + " and Time ='" + session + ":00'", useConnection());
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     id = Convert.ToInt32(reader["Session_ID"]);
 
                 }//End while
-                conn.Close();
+                useConnection().Close();
             }
             return id;
         }
@@ -393,24 +402,26 @@ namespace MovieViewing
                 DialogResult dialogResult = MessageBox.Show("Confirm", "Remove Movie", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    using (SqlConnection conn = new SqlConnection(getConnString()))
+                   // using (SqlConnection conn = new SqlConnection(getConnString()))
+                   using(useConnection())
                     {
-                        conn.Open();
-                        SqlCommand cmd = new SqlCommand("Delete from Session where Movie_ID=" + MovieID, conn);
+                        //conn.Open();
+                        SqlCommand cmd = new SqlCommand("Delete from Session where Movie_ID=" + MovieID, useConnection());
                         {
                             cmd.ExecuteNonQuery();
                         }
-                        conn.Close();
+                        useConnection().Close();
                     }
 
-                    using (SqlConnection conn = new SqlConnection(getConnString()))
+                    //using (SqlConnection conn = new SqlConnection(getConnString()))
+                    using (useConnection())
                     {
-                        conn.Open();
-                        SqlCommand cmd = new SqlCommand("Delete from Movie where Movie_ID=" + MovieID, conn);
+                        //conn.Open();
+                        SqlCommand cmd = new SqlCommand("Delete from Movie where Movie_ID=" + MovieID, useConnection());
                         {
                             cmd.ExecuteNonQuery();
                         }
-                        conn.Close();
+                        useConnection().Close();
                     }
                     ml.Clear();
                     createMovieList();

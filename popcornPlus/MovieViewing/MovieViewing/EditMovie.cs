@@ -30,7 +30,7 @@ namespace MovieViewing
             txtMovieID.ReadOnly = true;
             tbPicturePath.ReadOnly = true;
 
-            SqlConnection conn = null;
+           // SqlConnection conn = null;
             SqlDataReader rdr = null;
             string unfixedTime = null;
             string fixedTime;
@@ -39,9 +39,9 @@ namespace MovieViewing
 
             try
             {
-                conn = new SqlConnection(connectionString);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("sp_viewEditMovie", conn);
+               // conn = new SqlConnection(connectionString);
+               // conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_viewEditMovie", MovieListing.useConnection());
                 cmd.Parameters.Add(new SqlParameter("@id", selectedMovieId));
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
@@ -54,6 +54,7 @@ namespace MovieViewing
                     unfixedTime = rdr["RunTime"].ToString();
                     unfixedCurrency = rdr["Price"].ToString();
                 }
+                MovieListing.useConnection().Close();
                 fixedTime = unfixedTime.Substring(0, 8);
                 txtRunTime.Text = fixedTime;
                 fixedCurrency = unfixedCurrency.Substring(0, 2);
@@ -69,16 +70,16 @@ namespace MovieViewing
 
         private void btnSubmit_Click_1(object sender, EventArgs e)
         {
-            SqlConnection conn = null;
+            //SqlConnection conn = null;
             SqlDataReader rdr = null;
             if (txtTitle.Text != null && txtGenre.Text != null && txtRunTime.Text != null && txtPrice.Text != null &&
                imagePath != null)
             {
                 try
                 {
-                    conn = new SqlConnection(connectionString);
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("sp_editMovie1", conn);
+                   // conn = new SqlConnection(connectionString);
+                    //conn.Open();
+                    SqlCommand cmd = new SqlCommand("sp_editMovie1", MovieListing.useConnection());
                     cmd.Parameters.Add(new SqlParameter("@id", selectedMovieId));
                     cmd.Parameters.Add(new SqlParameter("@title", txtTitle.Text));
                     cmd.Parameters.Add(new SqlParameter("@genre", txtGenre.Text));
@@ -89,13 +90,14 @@ namespace MovieViewing
                     rdr = cmd.ExecuteReader();
                     rdr.Close();
 
-                    SqlCommand cmd2 = new SqlCommand("sp_addMovie2", conn);
+                    SqlCommand cmd2 = new SqlCommand("sp_addMovie2", MovieListing.useConnection());
                     cmd2.CommandType = CommandType.StoredProcedure;
 
                     cmd2.Parameters.Add(new SqlParameter("@poster", imagePath));
                     cmd2.Parameters.Add(new SqlParameter("@id", selectedMovieId));
 
                     cmd2.ExecuteNonQuery();
+                    MovieListing.useConnection().Close();
                 }
                 catch (Exception ex)
                 {
