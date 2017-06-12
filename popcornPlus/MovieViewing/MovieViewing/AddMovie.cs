@@ -19,7 +19,6 @@ namespace MovieViewing
 
         /* Instance Variable*/
         private int numberOfSeats;
-       // private string image;
         private int auditoriumID;
         private int seatPlanID;
         private int movie_ID;
@@ -27,7 +26,6 @@ namespace MovieViewing
         private TimeSpan time2;
         private TimeSpan time3;
         private string imagePath;
-        //private string connString = @"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=True;";
         private List<string> sessions = new List<string>();
 
         public AddMovie()
@@ -53,17 +51,10 @@ namespace MovieViewing
         /* NON QUERY SQL COMMANDS TO INSERT RECORDS INTO DATABASE TABLES BY PASSING VALUES FROM THE ADD MOVIE FORM*/
         public void addMovie()
         {
-            //SqlConnection conn = null;
-
             try
             {
-               // conn = new SqlConnection(connString);
-
                 SqlCommand cmd = new SqlCommand("sp_addMovie6", MovieListing.useConnection());
                 cmd.CommandType = CommandType.StoredProcedure;
-
-               // Open();
-
                 cmd.Parameters.Add(new SqlParameter("@title", txtTitle.Text));
                 cmd.Parameters.Add(new SqlParameter("@genre", txtGenre.Text));
                 cmd.Parameters.Add(new SqlParameter("@runTime", txtRunTime.Text));
@@ -71,47 +62,23 @@ namespace MovieViewing
                 cmd.Parameters.Add(new SqlParameter("@timeShown1", time1));
                 cmd.Parameters.Add(new SqlParameter("@timeShown2", time2));
                 cmd.Parameters.Add(new SqlParameter("@timeShown3", time3));
-
                 cmd.ExecuteNonQuery();
                 MovieListing.useConnection().Close();
             }
-
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
-
         }
 
         public void addSeat()
         {
-            /*
+
             for (int i = 0; i < getNumberOfSeats(); i++)
             {
                 Seat seat = new Seat(seatPlanID, false, (i + 1));
-                using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("Insert into Seat (Number, Reserved, SeatPlan_ID) values(@num, @res, @plan_ID )", conn);
-                    {
-                        cmd.Parameters.AddWithValue("@num", (i + 1));
-                        cmd.Parameters.AddWithValue("@res", false);
-                        cmd.Parameters.AddWithValue("@plan_ID", seatPlanID);
-                        cmd.ExecuteNonQuery();
-                        //MetroMessageBox.Show(this, "User Addedd", "Message");
-                        conn.Close();
-                    }
-                }
-            }
-            */
-            for (int i = 0; i < getNumberOfSeats(); i++)
-            {
-                Seat seat = new Seat(seatPlanID, false, (i + 1));
-               // SqlConnection conn = null;
                 try
                 {
-                    //conn = new SqlConnection(MovieListing.getConnString());
-                   // conn.Open();
                     SqlCommand cmd = new SqlCommand("sp_addSeat", MovieListing.useConnection());
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new SqlParameter("@number", (i + 1)));
@@ -127,8 +94,7 @@ namespace MovieViewing
             }
         }
         public void addSeatPlan()
-        {
-            
+        {     
             using (MovieListing.useConnection())
             {
                 SqlCommand cmd = new SqlCommand("Insert into SeatPLan(Auditorium_ID) values(@audit)", MovieListing.useConnection());
@@ -144,16 +110,11 @@ namespace MovieViewing
         }
         public void addSession(TimeSpan timeIn)
         {
-            //SqlConnection conn = null;
-
             try
             {
-                //conn = new SqlConnection(connString);
 
                 SqlCommand cmd = new SqlCommand("sp_addSession", MovieListing.useConnection());
                 cmd.CommandType = CommandType.StoredProcedure;
-
-               // conn.Open();
 
                 cmd.Parameters.Add(new SqlParameter("@movieID", movie_ID));
                 cmd.Parameters.Add(new SqlParameter("@planID", seatPlanID));
@@ -173,13 +134,9 @@ namespace MovieViewing
         /* METHODS TO GET DATA FROM DATABASE AND STORE IN THE INSTANCE VARIABLES*/
         public int getMovie_ID()
         {
-            //SqlConnection conn = null;
-           // conn = new SqlConnection(connString);
 
             using (MovieListing.useConnection())
             {
-                //conn.Open();
-
                 SqlCommand cmd = new SqlCommand("Select Top 1 * from Movie order by Movie_ID desc", MovieListing.useConnection());
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -188,10 +145,7 @@ namespace MovieViewing
                 }//End while
                 MovieListing.useConnection().Close();
             }
-
             insertPicture();
-
-
             return movie_ID;
         }
 
@@ -299,7 +253,6 @@ namespace MovieViewing
                     usedTimeAuditorium = auditorium + fixedTime;
                     sessions.Add(usedTimeAuditorium);
                 }
-
             }
             catch (Exception ex)
             {
@@ -388,7 +341,6 @@ namespace MovieViewing
                 imagePath = browseImage.FileName;
                 tbPicturePath.Text = imagePath;
             }
-
         }
         private void btnClose_Click_1(object sender, EventArgs e)
         {

@@ -21,27 +21,22 @@ namespace MovieViewing
         string runTime;
         decimal price;
         decimal totalPrice;
-        List<int> testing = new List<int>();
         public static string Title;
         public static string Runtime;
         public static string Price;
         public static string Totalprice;
         public static string Date;
         public static string Seats;
-
-        //decimal totalPrice;
-        // string quer = "select * from SeatPlan where SeatPlan_ID = ";
         public SeatBooking()
         {
             InitializeComponent();
-            connect();
+            getSession();
             generateSeats();
-            displaySessionTime();
-            setTitle();
+            sessionTimeAndScreen();
+            creatTicket();
             generateButtons();
             picBoxLogo.Image = MovieListing.getImage();
             lblName.Text = Login.getUserName();
-           // cmbSession.SelectedIndex = 0;
         }  
         
         void on_Click_Seat(Object sender, EventArgs e)
@@ -76,7 +71,6 @@ namespace MovieViewing
         {
             foreach (Seat i in seatList)
             {
-                // tablePanel.ColumnCount = column;
                 Button BtnNew = new Button();
                 BtnNew.Height = 100;
                 BtnNew.Width = 100;
@@ -95,12 +89,10 @@ namespace MovieViewing
         }
 
         // Connect to the database.
-        public void connect()
+        public void getSession()
         {
-            //using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
             using(MovieListing.useConnection())
             {
-               // conn.Open();
                 SqlCommand cmd = new SqlCommand("Select * from Session where Movie_ID ="+MovieListing.MovieID+" and Session_ID = "+MovieListing.SessionID, MovieListing.useConnection());
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -118,10 +110,8 @@ namespace MovieViewing
         }
         public void generateSeats()
         {
-            //using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
             using(MovieListing.useConnection())
             {
-                //conn.Open();
                 SqlCommand cmd = new SqlCommand("Select Seat.Seat_ID, Seat.Reserved, Seat.SeatPlan_ID, Seat.Number from(Session inner join Seat on Session.SeatPlan_ID =Seat.SeatPlan_ID and Session.Session_ID ="+MovieListing.SessionID+")", MovieListing.useConnection());
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -141,7 +131,7 @@ namespace MovieViewing
         {
             Close();
         }
-        public void displaySessionTime()
+        public void sessionTimeAndScreen()
         {
             foreach (Session i in sessionList)
             {
@@ -150,9 +140,8 @@ namespace MovieViewing
             }
         }
        
-        public void setTitle()
+        public void creatTicket()
         {
-            //using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
             using(MovieListing.useConnection())
             {
                 //conn.Open();
@@ -191,10 +180,8 @@ namespace MovieViewing
             private void updateSeats()
             {
                 foreach(Seat i in seatList){
-                    //using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
                     using(MovieListing.useConnection())
                     {
-                   // conn.Open();
                         SqlCommand cmd = new SqlCommand("update seat set Reserved =@res where Seat_ID = @ID", MovieListing.useConnection());
                         {
                             cmd.Parameters.AddWithValue("@res", i.Reserved);
@@ -207,8 +194,7 @@ namespace MovieViewing
             }
 
             private void btnBack_Click(object sender, EventArgs e)
-            {
-                
+            {  
                 this.Close();
             }
         }

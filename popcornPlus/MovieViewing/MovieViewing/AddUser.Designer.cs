@@ -217,7 +217,7 @@
             this.MaximizeBox = false;
             this.Name = "AddUser";
             this.Resizable = false;
-            this.Text = "AddUser";
+            this.Text = "Add User";
             this.Load += new System.EventHandler(this.AddUser_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();

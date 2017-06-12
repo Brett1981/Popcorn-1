@@ -68,8 +68,6 @@ namespace MovieViewing
             SqlDataReader rdr = null;
             try
             {
-               // conn = new SqlConnection(getConnString());
-               // conn.Open();
                 SqlCommand cmd = new SqlCommand("sp_movieList1", useConnection());
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
@@ -111,8 +109,6 @@ namespace MovieViewing
             int tlocationH = 186;//i apchia
             int tlocationL = 0;//i deshne
             int movieCountBreak = 0;
-            int panelSizeH = 799;
-            int panelSizeW = 450;
 
             foreach (Movie movie in ml)
             {
@@ -123,9 +119,6 @@ namespace MovieViewing
                     plocationH += 263;
                     tlocationH += 263;
                     movieCountBreak = 0;
-                    //panelSizeH += 280;
-                    //panelSizeW += 280;
-                   // movieListingPanel.Size = new Size(panelSizeW, panelSizeH);
                 }
 
                 PictureBox picture = new PictureBox
@@ -183,7 +176,6 @@ namespace MovieViewing
         }
         private void populateSessionList(string movieIdIn)
         {
-            //using (SqlConnection conn = new SqlConnection(getConnString()))
             using(useConnection())
             {
                // conn.Open();
@@ -202,7 +194,6 @@ namespace MovieViewing
         {
             TimeSpan session = TimeSpan.Parse(cbSession.SelectedItem.ToString());
             int id =0;
-            //using (SqlConnection conn = new SqlConnection(getConnString()))
             using(useConnection())
             {
                // conn.Open();
@@ -241,9 +232,7 @@ namespace MovieViewing
             }
             else
             {
-                MessageBox.Show("Please select movie.");
-
-                
+                MessageBox.Show("Please select movie."); 
             }
         }
 
@@ -299,7 +288,6 @@ namespace MovieViewing
                 DialogResult dialogResult = MessageBox.Show("Remove " + getSelectedMovieName()+"?", "Confirm!", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                   // using (SqlConnection conn = new SqlConnection(getConnString()))
                    using(useConnection())
                     {
                         //conn.Open();
@@ -310,7 +298,6 @@ namespace MovieViewing
                         useConnection().Close();
                     }
 
-                    //using (SqlConnection conn = new SqlConnection(getConnString()))
                     using (useConnection())
                     {
                         //conn.Open();
@@ -324,10 +311,8 @@ namespace MovieViewing
                     ml.Clear();
                     createMovieList();
                     showMovie();
-                    movieListingPanel.Refresh();
-                    
-                }
-                
+                    movieListingPanel.Refresh();  
+                }   
             }
             else
             {

@@ -320,6 +320,7 @@
             this.Controls.Add(this.metroLabel1);
             this.MaximizeBox = false;
             this.Name = "MovieListing";
+            this.Resizable = false;
             this.Text = "MovieListing";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.Load += new System.EventHandler(this.MovieListing_Load);
