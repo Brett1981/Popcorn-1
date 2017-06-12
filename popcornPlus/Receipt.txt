@@ -1,20 +1,20 @@
                 Porpcorn Receipt
 
-Title               Snatch
+Title               66
 
 Screen              A
 
 
-RunTime             01:20:00
+RunTime             02:22:00
 
 
-Seat               
+Seat                15 9 12
 
 
-Date                12:00:00
+Date                18:00:00
 
 
-Ticket Price        12.00
+Ticket Price        23.00
 
 
-Total               
+Total               69.00

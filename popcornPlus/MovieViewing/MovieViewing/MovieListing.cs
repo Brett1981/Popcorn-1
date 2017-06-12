@@ -123,9 +123,9 @@ namespace MovieViewing
                     plocationH += 263;
                     tlocationH += 263;
                     movieCountBreak = 0;
-                    panelSizeH += 280;
+                    //panelSizeH += 280;
                     //panelSizeW += 280;
-                    movieListingPanel.Size = new Size(panelSizeW, panelSizeH);
+                   // movieListingPanel.Size = new Size(panelSizeW, panelSizeH);
                 }
 
                 PictureBox picture = new PictureBox

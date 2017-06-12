@@ -249,13 +249,15 @@
             // 
             // movieListingPanel
             // 
-            this.movieListingPanel.HorizontalScrollbarBarColor = true;
+            this.movieListingPanel.AutoScroll = true;
+            this.movieListingPanel.HorizontalScrollbarBarColor = false;
             this.movieListingPanel.HorizontalScrollbarHighlightOnWheel = false;
             this.movieListingPanel.HorizontalScrollbarSize = 10;
-            this.movieListingPanel.Location = new System.Drawing.Point(42, 75);
+            this.movieListingPanel.Location = new System.Drawing.Point(15, 75);
             this.movieListingPanel.Name = "movieListingPanel";
-            this.movieListingPanel.Size = new System.Drawing.Size(383, 502);
+            this.movieListingPanel.Size = new System.Drawing.Size(476, 502);
             this.movieListingPanel.TabIndex = 73;
+            this.movieListingPanel.VerticalScrollbar = true;
             this.movieListingPanel.VerticalScrollbarBarColor = true;
             this.movieListingPanel.VerticalScrollbarHighlightOnWheel = false;
             this.movieListingPanel.VerticalScrollbarSize = 10;
