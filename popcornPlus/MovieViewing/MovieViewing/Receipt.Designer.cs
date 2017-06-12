@@ -184,6 +184,7 @@
             this.metroButton19.TabIndex = 95;
             this.metroButton19.Text = "CLOSE";
             this.metroButton19.UseSelectable = true;
+            this.metroButton19.Click += new System.EventHandler(this.metroButton19_Click);
             // 
             // txtTicket
             // 

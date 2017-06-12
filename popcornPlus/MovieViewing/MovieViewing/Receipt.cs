@@ -11,7 +11,7 @@ namespace MovieViewing
         private PrintDocument doc = new PrintDocument();
         private Font printFont;
         private StreamReader streamToPrint;
-        string dir = @"C:\Users\Darius\Desktop\Github\popcornPlus\Receipt.txt";
+        string dir = @"C:\Users\cob11.LYTC\Desktop\GitHub\Popcorn\popcornPlus\Receipt.txt";
         private string[] lines = { "Title\n", "Screen\n", "RunTime", "Seat", "Date", "Ticket Price", "Total" };
         public Receipt()
         {
@@ -133,6 +133,11 @@ namespace MovieViewing
 
             this.Close();
              
+        }
+
+        private void metroButton19_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
 

@@ -1,20 +1,20 @@
                 Porpcorn Receipt
 
-Title               Inception
+Title               Snatch
 
 Screen              A
 
 
-RunTime             02:00:00
+RunTime             01:20:00
 
 
 Seat               
 
 
-Date                14:00:00
+Date                12:00:00
 
 
-Ticket Price        6.99
+Ticket Price        12.00
 
 
 Total               

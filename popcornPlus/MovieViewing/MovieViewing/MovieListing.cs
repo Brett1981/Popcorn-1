@@ -234,7 +234,7 @@ namespace MovieViewing
                 sb.FormClosed += new FormClosedEventHandler(form2_FormClosed);
                 sb.ShowDialog();
             }
-            else if (selectedMovieId != -1 && cbSession.SelectedIndex < 0)
+            else if (cbSession.SelectedIndex < 0 && selectedMovieId != -1 )
             {
                 MessageBox.Show("Please select session time.");
                 test.Text = cbSession.SelectedIndex.ToString();
