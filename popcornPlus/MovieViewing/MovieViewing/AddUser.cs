@@ -48,7 +48,7 @@ namespace MovieViewing
 
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("User Name Already Exist.");
             }
         }
 
@@ -83,7 +83,6 @@ namespace MovieViewing
                 }
 
                 addUser();
-                Close();
             }
             else
             {
@@ -98,7 +97,7 @@ namespace MovieViewing
 
         private void chbAdministrator_CheckedChanged(object sender, EventArgs e)
         {
-            chbAdministrator.Checked = !chbClerk.Checked;
+            chbClerk.Checked = !chbAdministrator.Checked;
         }
     }
 }
