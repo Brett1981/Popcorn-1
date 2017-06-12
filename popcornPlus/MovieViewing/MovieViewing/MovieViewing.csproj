@@ -72,7 +72,6 @@
     <Compile Include="AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Auditorium.cs" />
     <Compile Include="EditMovie.cs">
       <SubType>Form</SubType>
     </Compile>

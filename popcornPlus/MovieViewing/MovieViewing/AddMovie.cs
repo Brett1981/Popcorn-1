@@ -105,8 +105,6 @@ namespace MovieViewing
                 }
                 MovieListing.useConnection().Close();
             }
-            
-
         }
         public void addSession(TimeSpan timeIn)
         {
@@ -171,11 +169,8 @@ namespace MovieViewing
         }
         public int getNumberOfSeats()
         {
-            //using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
             using(MovieListing.useConnection())
             {
-               // conn.Open();
-
                 SqlCommand cmd = new SqlCommand("Select NumberOfSeats from Auditorium where Audtorium_ID =" + auditoriumID, MovieListing.useConnection());
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -189,11 +184,8 @@ namespace MovieViewing
 
         public int getSeatPlanID()
         {
-            //using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
             using(MovieListing.useConnection())
             {
-               // conn.Open();
-
                 SqlCommand cmd = new SqlCommand("Select Top 1 * from SeatPlan order by SeatPlan_ID desc", MovieListing.useConnection());
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -207,23 +199,6 @@ namespace MovieViewing
 
 
         /* HELPER MTHOD TO INSERT IMAGE INTO THE DATABASE TABLE* {PASS IN IMAGE PATH}*/
-        private byte[] ImageToStream(string fileName)
-        {
-            MemoryStream stream = new MemoryStream();
-        tryagain:
-            try
-            {
-                Bitmap image = new Bitmap(fileName);
-                image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
-            }
-            catch (Exception ex)
-            {
-                goto tryagain;
-            }
-
-            return stream.ToArray();
-        }
-
         private void getUsedSession()
         {
            // SqlConnection conn = null;

@@ -64,8 +64,7 @@ namespace MovieViewing
                 file.WriteLine("");
                 file.WriteLine("\nTicket Price" + "        " + lblPrice.Text);
                 file.WriteLine("");
-                file.WriteLine("\nTotal" + "               " + lblTotal.Text);
-                
+                file.WriteLine("\nTotal" + "               " + lblTotal.Text);              
             }
 
         }
@@ -131,8 +130,7 @@ namespace MovieViewing
                 MessageBox.Show(ex.Message);
             }
 
-            this.Close();
-             
+            this.Close();   
         }
 
         private void metroButton19_Click(object sender, EventArgs e)

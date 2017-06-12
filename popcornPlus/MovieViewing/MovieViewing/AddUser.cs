@@ -26,17 +26,11 @@ namespace MovieViewing
 
         private void addUser()
         {
-           // SqlConnection conn = null;
-
             try
             {
-               // conn = new SqlConnection(MovieListing.getConnString());
 
                 SqlCommand cmd = new SqlCommand("sp_addUser2", MovieListing.useConnection());
                 cmd.CommandType = CommandType.StoredProcedure;
-
-              //  conn.Open();
-
                 cmd.Parameters.Add(new SqlParameter("@username", LoginName));
                 cmd.Parameters.Add(new SqlParameter("@password", password));
                 cmd.Parameters.Add(new SqlParameter("@userType", privelege));
