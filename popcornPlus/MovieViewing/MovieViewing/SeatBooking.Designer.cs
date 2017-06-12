@@ -224,9 +224,6 @@
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(195, 177);
             this.metroLabel5.TabIndex = 68;
-            this.metroLabel5.Text = "A pragmatic U.S. Marine \r\nobserves the dehumanizing\r\neffects the Vietnam War has " +
-    "\r\non his fellow recruits from \r\ntheir brutal boot camp training\r\nto the bloody s" +
-    "treet fighting \r\nin Hue.";
             // 
             // metroLabel8
             // 
