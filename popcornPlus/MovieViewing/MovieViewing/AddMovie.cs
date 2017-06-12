@@ -386,7 +386,6 @@ namespace MovieViewing
             if (browseImage.ShowDialog() == DialogResult.OK)
             {
                 imagePath = browseImage.FileName;
-                MessageBox.Show(imagePath.ToString());
                 tbPicturePath.Text = imagePath;
             }
 

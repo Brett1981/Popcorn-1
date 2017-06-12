@@ -296,7 +296,7 @@ namespace MovieViewing
         {
             if (MovieID !=- 1)
             {
-                DialogResult dialogResult = MessageBox.Show("Confirm", "Remove Movie", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Remove " + getSelectedMovieName()+"?", "Confirm!", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                    // using (SqlConnection conn = new SqlConnection(getConnString()))
@@ -320,10 +320,14 @@ namespace MovieViewing
                         }
                         useConnection().Close();
                     }
+                    movieListingPanel.Controls.Clear();
                     ml.Clear();
                     createMovieList();
                     showMovie();
-                } 
+                    movieListingPanel.Refresh();
+                    
+                }
+                
             }
             else
             {
