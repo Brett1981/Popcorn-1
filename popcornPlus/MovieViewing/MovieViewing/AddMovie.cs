@@ -201,14 +201,21 @@ namespace MovieViewing
         {
            // SqlConnection conn = null;
            // conn = new SqlConnection(connString);
-
-            SqlCommand cmd2 = new SqlCommand("sp_addMovie2", MovieListing.useConnection());
-            cmd2.CommandType = CommandType.StoredProcedure;
-          //  conn.Open();
-            cmd2.Parameters.Add(new SqlParameter("@poster", imagePath));
-            cmd2.Parameters.Add(new SqlParameter("@id", movie_ID));
-            cmd2.ExecuteNonQuery();
+            try
+            {
+                SqlCommand cmd2 = new SqlCommand("sp_addMovie2", MovieListing.useConnection());
+                cmd2.CommandType = CommandType.StoredProcedure;
+                //  conn.Open();
+                 cmd2.Parameters.Add(new SqlParameter("@poster", imagePath));
+                cmd2.Parameters.Add(new SqlParameter("@id", movie_ID));
+                cmd2.ExecuteNonQuery();
             MovieListing.useConnection().Close();
+            }
+            catch(Exception e){
+                MessageBox.Show("Image could not be opened.");
+
+            }
+
         }
         public int getNumberOfSeats()
         {

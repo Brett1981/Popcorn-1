@@ -53,6 +53,7 @@
             this.lblUser = new MetroFramework.Controls.MetroLabel();
             this.btnLogOff = new MetroFramework.Controls.MetroButton();
             this.lblName = new MetroFramework.Controls.MetroLabel();
+            this.test = new MetroFramework.Controls.MetroTextBox();
             this.SuspendLayout();
             // 
             // lblSession
@@ -286,11 +287,42 @@
             this.lblName.Size = new System.Drawing.Size(0, 0);
             this.lblName.TabIndex = 75;
             // 
+            // test
+            // 
+            // 
+            // 
+            // 
+            this.test.CustomButton.Image = null;
+            this.test.CustomButton.Location = new System.Drawing.Point(53, 1);
+            this.test.CustomButton.Name = "";
+            this.test.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.test.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.test.CustomButton.TabIndex = 1;
+            this.test.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.test.CustomButton.UseSelectable = true;
+            this.test.CustomButton.Visible = false;
+            this.test.Lines = new string[0];
+            this.test.Location = new System.Drawing.Point(559, 33);
+            this.test.MaxLength = 32767;
+            this.test.Name = "test";
+            this.test.PasswordChar = '\0';
+            this.test.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.test.SelectedText = "";
+            this.test.SelectionLength = 0;
+            this.test.SelectionStart = 0;
+            this.test.ShortcutsEnabled = true;
+            this.test.Size = new System.Drawing.Size(75, 23);
+            this.test.TabIndex = 76;
+            this.test.UseSelectable = true;
+            this.test.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.test.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // MovieListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.test);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.movieListingPanel);
@@ -353,6 +385,7 @@
         private MetroFramework.Controls.MetroPanel movieListingPanel;
         private MetroFramework.Controls.MetroLabel lblUser;
         private MetroFramework.Controls.MetroLabel lblName;
+        private MetroFramework.Controls.MetroTextBox test;
 
     }
 }

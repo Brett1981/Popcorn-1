@@ -164,16 +164,6 @@ namespace MovieViewing
 
         }
 
-        private void btnLogOff_Click(object sender, EventArgs e)
-        {
-            /*
-            Login.setUserIdentification(null);
-            ActiveForm.Hide();
-            Login logIn = new Login();
-            logIn.ShowDialog();
-             * 
-             **/
-        }
         private void picture_Click(object sender, MouseEventArgs e)
         {
             cbSession.Items.Clear();
@@ -191,40 +181,8 @@ namespace MovieViewing
             selectedMovieName = ml[selectedMovieId].getTitle();
             MovieID = Convert.ToInt32(ml[selectedMovieId].getMovieId());
         }
-        /*
         private void populateSessionList(string movieIdIn)
         {
-            SqlConnection conn = null;
-            SqlDataReader rdr = null;
-
-            try
-            {
-                conn = new SqlConnection(getConnString());
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("sp_selectSession2", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@movieId", movieIdIn));
-                cmd.ExecuteNonQuery();
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-
-                    DateTime time = Convert.ToDateTime(rdr["Time"].ToString());
-                    cbSession.Items.Add(time.ToShortTimeString());
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-         
-        /*
-         * */
-        private void populateSessionList(string movieIdIn)
-        {
-
             //using (SqlConnection conn = new SqlConnection(getConnString()))
             using(useConnection())
             {
@@ -259,81 +217,35 @@ namespace MovieViewing
             }
             return id;
         }
-        private void btnRemoveMovie_Click(object sender, EventArgs e)
-        {
-           /*
-            if (Login.getUserIdentification() == "ad" || Login.getUserIdentification() == "AD")
-            {
-                MessageBox.Show("placeholder: **form opened** and shane is gay");
-            }
-            else
-            {
-                MessageBox.Show("Error 004: User Does Not Have Remove Movie Privelege");
-            }
-            */
-        }
-
-
-        private void btnRemoveClerk_Click(object sender, EventArgs e)
-        {
-            /*
-            if (Login.getUserIdentification() == "ad" || Login.getUserIdentification() == "AD")
-            {
-                MessageBox.Show("placeholder: **form opened** and shane is gay");
-            }
-            else
-            {
-                MessageBox.Show("Error 006: User Does Not Have Remove Clerk Privelege");
-            }
-            */
-        }
-
-        private void btnAddClerk_Click(object sender, EventArgs e)
-        {
-            /*
-            if (Login.getUserIdentification() == "ad" || Login.getUserIdentification() == "AD")
-            {
-                MessageBox.Show("placeholder: **form opened** and shane is gay");
-            }
-            else
-            {
-                MessageBox.Show("Error 005: User Does Not Have Add Clerk Privelege");
-            }
-             */
-        }
 
         private void btnAddMovie_Click_1(object sender, EventArgs e)
         {
             AddMovie am = new AddMovie();
             am.FormClosed += new FormClosedEventHandler(Add_Movie_Closed);
             am.ShowDialog();
-            
-            /*
-            if (Login.getUserIdentification() == "ad" || Login.getUserIdentification() == "AD")
-            {
-                
-
-            }
-            else
-            {
-                MessageBox.Show("Error 003: User Does Not Have Add Movie Privelege");
-            }
-             */
         }
 
         private void btnBookSeat_Click_1(object sender, EventArgs e)
         {
-            if (selectedMovieId != -1 && cbSession.SelectedIndex >-1)
+            if (selectedMovieId != -1 && cbSession.SelectedIndex > -1)
             {
                 SeatBooking sb = new SeatBooking();
                 MovieID = Convert.ToInt32(getSelMovieId());
                 sb.FormClosed += new FormClosedEventHandler(form2_FormClosed);
-                sb.ShowDialog(); 
+                sb.ShowDialog();
+            }
+            else if (selectedMovieId != -1 && cbSession.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select session time.");
+                test.Text = cbSession.SelectedIndex.ToString();
+                test.Text += " " + MovieID.ToString();
             }
             else
             {
                 MessageBox.Show("Please select movie.");
-
+                test.Text = cbSession.SelectedIndex.ToString();
+                test.Text += " "+MovieID.ToString(); 
+                
             }
         }
 
@@ -346,7 +258,6 @@ namespace MovieViewing
                 btnEditDetails.Enabled = false;
                 btnRemoveClerk.Enabled = false;
                 btnRemoveMovie.Enabled = false;
-
             }
         }
 
@@ -366,18 +277,7 @@ namespace MovieViewing
             else
             {
                 MessageBox.Show("Please select movie.");
-            }
-            /*
-            if (Login.getUserIdentification() == "ad" || Login.getUserIdentification() == "AD")
-            {
-                EditMovie ed = new EditMovie();
-                ed.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Error 007: User Does Not Have Edit Details Privelege");
-            }
-             */    
+            }            
         }
 
         void form2_FormClosed(object sender, FormClosedEventArgs e)
@@ -391,8 +291,7 @@ namespace MovieViewing
         {
             ml.Clear();
             createMovieList();
-            showMovie();
-            
+            showMovie();  
         }
 
         private void btnRemoveMovie_Click_1(object sender, EventArgs e)
