@@ -237,14 +237,12 @@ namespace MovieViewing
             else if (cbSession.SelectedIndex < 0 && selectedMovieId != -1 )
             {
                 MessageBox.Show("Please select session time.");
-                test.Text = cbSession.SelectedIndex.ToString();
-                test.Text += " " + MovieID.ToString();
+
             }
             else
             {
                 MessageBox.Show("Please select movie.");
-                test.Text = cbSession.SelectedIndex.ToString();
-                test.Text += " "+MovieID.ToString(); 
+
                 
             }
         }

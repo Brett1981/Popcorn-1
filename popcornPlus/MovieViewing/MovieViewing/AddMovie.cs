@@ -128,20 +128,18 @@ namespace MovieViewing
         }
         public void addSeatPlan()
         {
-            /*
-            using (SqlConnection conn = new SqlConnection(@"Server=(local)\SQLEXPRESS;Database=Popcorn;Trusted_Connection=yes;"))
+            
+            using (MovieListing.useConnection())
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("Insert into SeatPLan(Auditorium_ID) values(@audit)", conn);
+                SqlCommand cmd = new SqlCommand("Insert into SeatPLan(Auditorium_ID) values(@audit)", MovieListing.useConnection());
                 {
                     cmd.Parameters.AddWithValue("@audit", auditoriumID);
                     cmd.ExecuteNonQuery();
-                    //MetroMessageBox.Show(this, "User Addedd", "Message");
-                    MessageBox.Show("SeatPlan Success");
                     this.Close();
                 }
+                MovieListing.useConnection().Close();
             }
-            */
+            
 
         }
         public void addSession(TimeSpan timeIn)
