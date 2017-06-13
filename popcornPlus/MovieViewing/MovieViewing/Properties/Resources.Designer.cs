@@ -123,29 +123,9 @@ namespace MovieViewing.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap logoff1 {
+        internal static System.Drawing.Bitmap logoff4 {
             get {
-                object obj = ResourceManager.GetObject("logoff1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logoff2 {
-            get {
-                object obj = ResourceManager.GetObject("logoff2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logoff3 {
-            get {
-                object obj = ResourceManager.GetObject("logoff3", resourceCulture);
+                object obj = ResourceManager.GetObject("logoff4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

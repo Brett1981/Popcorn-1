@@ -61,6 +61,7 @@ namespace MovieViewing
             showMovie();
             MovieID = Convert.ToInt32(getSelMovieId());
             lblName.Text = Login.getUserName();
+            btnLogof.BackgroundImage = Properties.Resources.logoff;
         }
         public void createMovieList()
         {
@@ -334,13 +335,14 @@ namespace MovieViewing
             frm.ShowDialog();
         }
 
-        private void btnLogOf_Click(object sender, EventArgs e)
+
+        private void btnLogof_Click_1(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Log off " + Login.getUserName()+"?", "Confirm!", MessageBoxButtons.YesNo);
-            if(result ==DialogResult.Yes){
+            DialogResult result = MessageBox.Show("Log off " + Login.getUserName() + "?", "Confirm!", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
                 Application.Exit();
             }
-
         }
 
     

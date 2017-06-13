@@ -51,12 +51,12 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.movieListingPanel = new MetroFramework.Controls.MetroPanel();
             this.lblUser = new MetroFramework.Controls.MetroLabel();
-            this.lblName = new MetroFramework.Controls.MetroLabel();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.lblTitle = new MetroFramework.Controls.MetroLabel();
-            this.btnLogOf = new MetroFramework.Controls.MetroButton();
             this.btnLogOff = new MetroFramework.Controls.MetroButton();
+            this.btnLogof = new MetroFramework.Controls.MetroButton();
+            this.lblName = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // lblSession
@@ -275,14 +275,6 @@
             this.lblUser.Size = new System.Drawing.Size(0, 0);
             this.lblUser.TabIndex = 74;
             // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(54, 21);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(0, 0);
-            this.lblName.TabIndex = 75;
-            // 
             // metroTile1
             // 
             this.metroTile1.ActiveControl = null;
@@ -309,19 +301,8 @@
             this.lblTitle.TabIndex = 78;
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnLogOf
-            // 
-            this.btnLogOf.BackgroundImage = global::MovieViewing.Properties.Resources.logoff3;
-            this.btnLogOf.Location = new System.Drawing.Point(14, 24);
-            this.btnLogOf.Name = "btnLogOf";
-            this.btnLogOf.Size = new System.Drawing.Size(25, 25);
-            this.btnLogOf.TabIndex = 99;
-            this.btnLogOf.UseSelectable = true;
-            this.btnLogOf.Click += new System.EventHandler(this.btnLogOf_Click);
-            // 
             // btnLogOff
             // 
-            this.btnLogOff.BackgroundImage = global::MovieViewing.Properties.Resources.Saki_NuoveXT_2_Apps_session_logout;
             this.btnLogOff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnLogOff.Location = new System.Drawing.Point(23, -121);
             this.btnLogOff.Name = "btnLogOff";
@@ -329,16 +310,33 @@
             this.btnLogOff.TabIndex = 64;
             this.btnLogOff.UseSelectable = true;
             // 
+            // btnLogof
+            // 
+            this.btnLogof.Location = new System.Drawing.Point(14, 42);
+            this.btnLogof.Name = "btnLogof";
+            this.btnLogof.Size = new System.Drawing.Size(25, 25);
+            this.btnLogof.TabIndex = 79;
+            this.btnLogof.UseSelectable = true;
+            this.btnLogof.Click += new System.EventHandler(this.btnLogof_Click_1);
+            // 
+            // lblName
+            // 
+            this.lblName.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblName.Location = new System.Drawing.Point(55, 42);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(219, 20);
+            this.lblName.TabIndex = 80;
+            // 
             // MovieListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.btnLogOf);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.btnLogof);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroTile1);
-            this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.movieListingPanel);
             this.Controls.Add(this.lblSession);
@@ -401,11 +399,11 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroPanel movieListingPanel;
         private MetroFramework.Controls.MetroLabel lblUser;
-        private MetroFramework.Controls.MetroLabel lblName;
         private MetroFramework.Controls.MetroTile metroTile1;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel lblTitle;
-        private MetroFramework.Controls.MetroButton btnLogOf;
+        private MetroFramework.Controls.MetroButton btnLogof;
+        private MetroFramework.Controls.MetroLabel lblName;
 
     }
 }

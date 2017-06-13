@@ -39,6 +39,9 @@ namespace MovieViewing
             generateButtons();
             picBoxLogo.Image = MovieListing.getImage();
             lblName.Text = Login.getUserName();
+            btnLogOf.BackgroundImage = Properties.Resources.logoff;
+            pictureBox2.BackgroundImage = Properties.Resources.PopcornLogo;
+
         }  
         
         void on_Click_Seat(Object sender, EventArgs e)
@@ -95,7 +98,7 @@ namespace MovieViewing
         {
             using(MovieListing.useConnection())
             {
-                SqlCommand cmd = new SqlCommand("Select * from Session where Movie_ID ="+MovieListing.MovieID+" and Session_ID = "+MovieListing.SessionID, MovieListing.useConnection());
+                SqlCommand cmd = new SqlCommand("Select * from Session where Session_ID = "+MovieListing.SessionID, MovieListing.useConnection());
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {

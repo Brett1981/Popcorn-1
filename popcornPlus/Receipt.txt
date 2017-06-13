@@ -1,20 +1,20 @@
                 Porpcorn Receipt
 
-Title               asdasd
+Title               ad
 
 Screen             1
 
 
-RunTime           02:33:00
+RunTime           02:22:00
 
 
-Seat                5
+Seat                1
 
 
-Date               13/06/2017  22:00:00
+Date               13/06/2017  14:00:00
 
 
-Ticket Price      55.00
+Ticket Price      6.00
 
 
-Total               55.00
+Total               6.00

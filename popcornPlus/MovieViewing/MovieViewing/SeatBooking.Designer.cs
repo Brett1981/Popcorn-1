@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeatBooking));
             this.lblName = new MetroFramework.Controls.MetroLabel();
             this.metroTile5 = new MetroFramework.Controls.MetroTile();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -66,6 +67,7 @@
             // 
             // lblName
             // 
+            this.lblName.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lblName.Location = new System.Drawing.Point(63, 18);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(219, 20);
@@ -412,7 +414,6 @@
             // 
             // btnLogOf
             // 
-            this.btnLogOf.BackgroundImage = global::MovieViewing.Properties.Resources.logoff3;
             this.btnLogOf.Location = new System.Drawing.Point(23, 21);
             this.btnLogOf.Name = "btnLogOf";
             this.btnLogOf.Size = new System.Drawing.Size(25, 25);
@@ -422,10 +423,10 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::MovieViewing.Properties.Resources.PopcornLogo;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.Location = new System.Drawing.Point(671, 301);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(106, 97);
+            this.pictureBox2.Size = new System.Drawing.Size(97, 97);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 67;
             this.pictureBox2.TabStop = false;
