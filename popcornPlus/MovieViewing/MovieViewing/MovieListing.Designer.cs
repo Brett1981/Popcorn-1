@@ -51,13 +51,17 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.movieListingPanel = new MetroFramework.Controls.MetroPanel();
             this.lblUser = new MetroFramework.Controls.MetroLabel();
-            this.btnLogOff = new MetroFramework.Controls.MetroButton();
             this.lblName = new MetroFramework.Controls.MetroLabel();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.lblTitle = new MetroFramework.Controls.MetroLabel();
+            this.btnLogOf = new MetroFramework.Controls.MetroButton();
+            this.btnLogOff = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // lblSession
             // 
-            this.lblSession.Location = new System.Drawing.Point(513, 140);
+            this.lblSession.Location = new System.Drawing.Point(515, 210);
             this.lblSession.Name = "lblSession";
             this.lblSession.Size = new System.Drawing.Size(92, 20);
             this.lblSession.TabIndex = 72;
@@ -67,7 +71,7 @@
             // 
             this.cbSession.FormattingEnabled = true;
             this.cbSession.ItemHeight = 23;
-            this.cbSession.Location = new System.Drawing.Point(652, 140);
+            this.cbSession.Location = new System.Drawing.Point(653, 210);
             this.cbSession.Name = "cbSession";
             this.cbSession.Size = new System.Drawing.Size(121, 29);
             this.cbSession.TabIndex = 71;
@@ -76,7 +80,7 @@
             // 
             // btnRemoveClerk
             // 
-            this.btnRemoveClerk.Location = new System.Drawing.Point(652, 488);
+            this.btnRemoveClerk.Location = new System.Drawing.Point(653, 528);
             this.btnRemoveClerk.Name = "btnRemoveClerk";
             this.btnRemoveClerk.Size = new System.Drawing.Size(125, 50);
             this.btnRemoveClerk.TabIndex = 69;
@@ -86,7 +90,7 @@
             // 
             // btnAddClerk
             // 
-            this.btnAddClerk.Location = new System.Drawing.Point(513, 488);
+            this.btnAddClerk.Location = new System.Drawing.Point(514, 528);
             this.btnAddClerk.Name = "btnAddClerk";
             this.btnAddClerk.Size = new System.Drawing.Size(125, 50);
             this.btnAddClerk.TabIndex = 68;
@@ -97,7 +101,7 @@
             // metroTile7
             // 
             this.metroTile7.ActiveControl = null;
-            this.metroTile7.Location = new System.Drawing.Point(512, 442);
+            this.metroTile7.Location = new System.Drawing.Point(513, 482);
             this.metroTile7.Name = "metroTile7";
             this.metroTile7.Size = new System.Drawing.Size(265, 40);
             this.metroTile7.TabIndex = 67;
@@ -106,7 +110,7 @@
             // 
             // btnRemoveMovie
             // 
-            this.btnRemoveMovie.Location = new System.Drawing.Point(653, 310);
+            this.btnRemoveMovie.Location = new System.Drawing.Point(653, 360);
             this.btnRemoveMovie.Name = "btnRemoveMovie";
             this.btnRemoveMovie.Size = new System.Drawing.Size(125, 50);
             this.btnRemoveMovie.TabIndex = 66;
@@ -116,7 +120,7 @@
             // 
             // btnAddMovie
             // 
-            this.btnAddMovie.Location = new System.Drawing.Point(513, 310);
+            this.btnAddMovie.Location = new System.Drawing.Point(514, 360);
             this.btnAddMovie.Name = "btnAddMovie";
             this.btnAddMovie.Size = new System.Drawing.Size(125, 50);
             this.btnAddMovie.TabIndex = 65;
@@ -126,7 +130,7 @@
             // 
             // btnEditDetails
             // 
-            this.btnEditDetails.Location = new System.Drawing.Point(513, 377);
+            this.btnEditDetails.Location = new System.Drawing.Point(513, 426);
             this.btnEditDetails.Name = "btnEditDetails";
             this.btnEditDetails.Size = new System.Drawing.Size(126, 50);
             this.btnEditDetails.TabIndex = 63;
@@ -136,7 +140,7 @@
             // 
             // btnBookSeat
             // 
-            this.btnBookSeat.Location = new System.Drawing.Point(512, 181);
+            this.btnBookSeat.Location = new System.Drawing.Point(515, 248);
             this.btnBookSeat.Name = "btnBookSeat";
             this.btnBookSeat.Size = new System.Drawing.Size(125, 50);
             this.btnBookSeat.TabIndex = 62;
@@ -147,7 +151,7 @@
             // metroTile6
             // 
             this.metroTile6.ActiveControl = null;
-            this.metroTile6.Location = new System.Drawing.Point(513, 264);
+            this.metroTile6.Location = new System.Drawing.Point(514, 304);
             this.metroTile6.Name = "metroTile6";
             this.metroTile6.Size = new System.Drawing.Size(265, 40);
             this.metroTile6.TabIndex = 61;
@@ -164,7 +168,7 @@
             // 
             // lblRunTime
             // 
-            this.lblRunTime.Location = new System.Drawing.Point(610, 88);
+            this.lblRunTime.Location = new System.Drawing.Point(611, 148);
             this.lblRunTime.Name = "lblRunTime";
             this.lblRunTime.Size = new System.Drawing.Size(167, 20);
             this.lblRunTime.TabIndex = 59;
@@ -172,7 +176,7 @@
             // 
             // lblPrice
             // 
-            this.lblPrice.Location = new System.Drawing.Point(611, 108);
+            this.lblPrice.Location = new System.Drawing.Point(613, 179);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(167, 20);
             this.lblPrice.TabIndex = 55;
@@ -196,7 +200,7 @@
             // 
             // metroLabel10
             // 
-            this.metroLabel10.Location = new System.Drawing.Point(512, 75);
+            this.metroLabel10.Location = new System.Drawing.Point(513, 148);
             this.metroLabel10.Name = "metroLabel10";
             this.metroLabel10.Size = new System.Drawing.Size(92, 20);
             this.metroLabel10.TabIndex = 52;
@@ -204,7 +208,7 @@
             // 
             // metroLabel6
             // 
-            this.metroLabel6.Location = new System.Drawing.Point(512, 108);
+            this.metroLabel6.Location = new System.Drawing.Point(513, 179);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(92, 20);
             this.metroLabel6.TabIndex = 48;
@@ -250,10 +254,11 @@
             // movieListingPanel
             // 
             this.movieListingPanel.AutoScroll = true;
+            this.movieListingPanel.HorizontalScrollbar = true;
             this.movieListingPanel.HorizontalScrollbarBarColor = false;
             this.movieListingPanel.HorizontalScrollbarHighlightOnWheel = false;
             this.movieListingPanel.HorizontalScrollbarSize = 10;
-            this.movieListingPanel.Location = new System.Drawing.Point(15, 75);
+            this.movieListingPanel.Location = new System.Drawing.Point(14, 78);
             this.movieListingPanel.Name = "movieListingPanel";
             this.movieListingPanel.Size = new System.Drawing.Size(476, 502);
             this.movieListingPanel.TabIndex = 73;
@@ -270,6 +275,50 @@
             this.lblUser.Size = new System.Drawing.Size(0, 0);
             this.lblUser.TabIndex = 74;
             // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(54, 21);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(0, 0);
+            this.lblName.TabIndex = 75;
+            // 
+            // metroTile1
+            // 
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.Location = new System.Drawing.Point(509, 75);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(265, 40);
+            this.metroTile1.TabIndex = 76;
+            this.metroTile1.Text = "DETAILS";
+            this.metroTile1.UseSelectable = true;
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.Location = new System.Drawing.Point(514, 118);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(92, 20);
+            this.metroLabel3.TabIndex = 77;
+            this.metroLabel3.Text = "Title:";
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Location = new System.Drawing.Point(607, 118);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(167, 20);
+            this.lblTitle.TabIndex = 78;
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnLogOf
+            // 
+            this.btnLogOf.BackgroundImage = global::MovieViewing.Properties.Resources.logoff3;
+            this.btnLogOf.Location = new System.Drawing.Point(14, 24);
+            this.btnLogOf.Name = "btnLogOf";
+            this.btnLogOf.Size = new System.Drawing.Size(25, 25);
+            this.btnLogOf.TabIndex = 99;
+            this.btnLogOf.UseSelectable = true;
+            this.btnLogOf.Click += new System.EventHandler(this.btnLogOf_Click);
+            // 
             // btnLogOff
             // 
             this.btnLogOff.BackgroundImage = global::MovieViewing.Properties.Resources.Saki_NuoveXT_2_Apps_session_logout;
@@ -280,19 +329,15 @@
             this.btnLogOff.TabIndex = 64;
             this.btnLogOff.UseSelectable = true;
             // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(42, 23);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(0, 0);
-            this.lblName.TabIndex = 75;
-            // 
             // MovieListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.btnLogOf);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.metroLabel3);
+            this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.movieListingPanel);
@@ -318,10 +363,11 @@
             this.Controls.Add(this.metroTile5);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
             this.Name = "MovieListing";
             this.Resizable = false;
-            this.Text = "MovieListing";
+            this.Text = "Movie Listing";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.Load += new System.EventHandler(this.MovieListing_Load);
             this.ResumeLayout(false);
@@ -356,6 +402,10 @@
         private MetroFramework.Controls.MetroPanel movieListingPanel;
         private MetroFramework.Controls.MetroLabel lblUser;
         private MetroFramework.Controls.MetroLabel lblName;
+        private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroLabel lblTitle;
+        private MetroFramework.Controls.MetroButton btnLogOf;
 
     }
 }

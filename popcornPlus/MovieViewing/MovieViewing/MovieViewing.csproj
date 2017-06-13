@@ -173,6 +173,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\logoff3.png" />
+    <None Include="Resources\logoff2.png" />
+    <None Include="Resources\logoff1.png" />
+    <None Include="Resources\logoff.png" />
     <None Include="Resources\PopcornLogo.png" />
     <None Include="Resources\MPW-19423.jpg" />
     <None Include="Resources\Saki-NuoveXT-2-Apps-session-logout.ico" />

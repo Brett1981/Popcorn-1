@@ -26,7 +26,7 @@ namespace MovieViewing
             lblTitle.Text = SeatBooking.Title;
             lblSeat.Text = SeatBooking.Seats;
             lblPrice.Text = SeatBooking.Price;
-            lblDate.Text = today.ToShortDateString()+"  "+SeatBooking.Date;
+            lblDate.Text = SeatBooking.Date;
             lblRunTime.Text = SeatBooking.Runtime;
             lblTotal.Text = SeatBooking.Totalprice;
             lblScreen.Text = SeatBooking.Auditorium;
@@ -56,15 +56,15 @@ namespace MovieViewing
                 file.WriteLine("");
                 file.WriteLine("Title" +"               "+ lblTitle.Text);
                 file.WriteLine("");
-                file.WriteLine("Screen" +"              " + lblScreen.Text);
+                file.WriteLine("Screen" +"             " + lblScreen.Text);
                 file.WriteLine("");
-                file.WriteLine("\nRunTime" + "             " + lblRunTime.Text);
+                file.WriteLine("\nRunTime" + "           " + lblRunTime.Text);
                 file.WriteLine("");
                 file.WriteLine("\nSeat" + "               " + lblSeat.Text);
                 file.WriteLine("");
-                file.WriteLine("\nDate" + "                " + lblDate.Text);
+                file.WriteLine("\nDate" + "               " + lblDate.Text);
                 file.WriteLine("");
-                file.WriteLine("\nTicket Price" + "        " + lblPrice.Text);
+                file.WriteLine("\nTicket Price" + "      " + lblPrice.Text);
                 file.WriteLine("");
                 file.WriteLine("\nTotal" + "               " + lblTotal.Text);              
             }

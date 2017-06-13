@@ -170,6 +170,7 @@ namespace MovieViewing
             tbGenre.Text = ml[selectedMovieId].getGenre();
             lblRunTime.Text = ml[selectedMovieId].getRunTime();
             lblPrice.Text = fixedCurrency;
+            lblTitle.Text = ml[selectedMovieId].getTitle();
             //assign movies name to a variable thats used to access movie booking form
             selectedMovieName = ml[selectedMovieId].getTitle();
             MovieID = Convert.ToInt32(ml[selectedMovieId].getMovieId());
@@ -272,6 +273,7 @@ namespace MovieViewing
             MovieID = -1;
             lblRunTime.Text = "";
             lblPrice.Text = "";
+            lblTitle.Text = "";
             cbSession.Items.Clear();         
         }
         void Add_Movie_Closed(object sender, FormClosedEventArgs e)
@@ -331,5 +333,17 @@ namespace MovieViewing
             RemoveUser frm = new RemoveUser();
             frm.ShowDialog();
         }
+
+        private void btnLogOf_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Log off " + Login.getUserName()+"?", "Confirm!", MessageBoxButtons.YesNo);
+            if(result ==DialogResult.Yes){
+                Application.Exit();
+            }
+
+        }
+
+    
+        
     }
 }

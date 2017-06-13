@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.lblName = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroTile5 = new MetroFramework.Controls.MetroTile();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
@@ -57,30 +56,20 @@
             this.lblTitle = new MetroFramework.Controls.MetroLabel();
             this.txtScreen = new MetroFramework.Controls.MetroTextBox();
             this.tablePanel = new System.Windows.Forms.TableLayoutPanel();
+            this.txtTime = new MetroFramework.Controls.MetroTextBox();
+            this.btnLogOf = new MetroFramework.Controls.MetroButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.picBoxLogo = new System.Windows.Forms.PictureBox();
-            this.txtTime = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblName
             // 
-            this.lblName.Location = new System.Drawing.Point(26, 31);
+            this.lblName.Location = new System.Drawing.Point(63, 18);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(110, 20);
+            this.lblName.Size = new System.Drawing.Size(219, 20);
             this.lblName.TabIndex = 36;
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel2.Location = new System.Drawing.Point(142, 21);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(380, 30);
-            this.metroLabel2.TabIndex = 37;
-            this.metroLabel2.Text = "Seat Booking";
-            this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // metroTile5
             // 
@@ -390,25 +379,6 @@
             this.tablePanel.Size = new System.Drawing.Size(274, 297);
             this.tablePanel.TabIndex = 96;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::MovieViewing.Properties.Resources.PopcornLogo;
-            this.pictureBox2.Location = new System.Drawing.Point(671, 301);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(106, 97);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 67;
-            this.pictureBox2.TabStop = false;
-            // 
-            // picBoxLogo
-            // 
-            this.picBoxLogo.Location = new System.Drawing.Point(23, 63);
-            this.picBoxLogo.Name = "picBoxLogo";
-            this.picBoxLogo.Size = new System.Drawing.Size(274, 177);
-            this.picBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxLogo.TabIndex = 39;
-            this.picBoxLogo.TabStop = false;
-            // 
             // txtTime
             // 
             // 
@@ -440,12 +410,42 @@
             this.txtTime.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtTime.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // btnLogOf
+            // 
+            this.btnLogOf.BackgroundImage = global::MovieViewing.Properties.Resources.logoff3;
+            this.btnLogOf.Location = new System.Drawing.Point(23, 21);
+            this.btnLogOf.Name = "btnLogOf";
+            this.btnLogOf.Size = new System.Drawing.Size(25, 25);
+            this.btnLogOf.TabIndex = 98;
+            this.btnLogOf.UseSelectable = true;
+            this.btnLogOf.Click += new System.EventHandler(this.btnLogOf_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::MovieViewing.Properties.Resources.PopcornLogo;
+            this.pictureBox2.Location = new System.Drawing.Point(671, 301);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(106, 97);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 67;
+            this.pictureBox2.TabStop = false;
+            // 
+            // picBoxLogo
+            // 
+            this.picBoxLogo.Location = new System.Drawing.Point(23, 63);
+            this.picBoxLogo.Name = "picBoxLogo";
+            this.picBoxLogo.Size = new System.Drawing.Size(274, 177);
+            this.picBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxLogo.TabIndex = 39;
+            this.picBoxLogo.TabStop = false;
+            // 
             // SeatBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 681);
+            this.Controls.Add(this.btnLogOf);
             this.Controls.Add(this.txtTime);
             this.Controls.Add(this.tablePanel);
             this.Controls.Add(this.txtScreen);
@@ -476,11 +476,12 @@
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroTile5);
             this.Controls.Add(this.picBoxLogo);
-            this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.lblName);
             this.MaximizeBox = false;
             this.Name = "SeatBooking";
             this.Resizable = false;
+            this.Text = "Seat Booking";
+            this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).EndInit();
             this.ResumeLayout(false);
@@ -490,7 +491,6 @@
         #endregion
 
         private MetroFramework.Controls.MetroLabel lblName;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
         private System.Windows.Forms.PictureBox picBoxLogo;
         private MetroFramework.Controls.MetroTile metroTile5;
         private MetroFramework.Controls.MetroLabel metroLabel3;
@@ -521,5 +521,6 @@
         private MetroFramework.Controls.MetroTextBox txtScreen;
         private System.Windows.Forms.TableLayoutPanel tablePanel;
         private MetroFramework.Controls.MetroTextBox txtTime;
+        private MetroFramework.Controls.MetroButton btnLogOf;
     }
 }

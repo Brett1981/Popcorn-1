@@ -199,6 +199,15 @@ namespace MovieViewing
             {  
                 this.Close();
             }
+
+            private void btnLogOf_Click(object sender, EventArgs e)
+            {
+                DialogResult result = MessageBox.Show("Log off " + Login.getUserName() + "?", "Confirm!", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
         }
 
     }
