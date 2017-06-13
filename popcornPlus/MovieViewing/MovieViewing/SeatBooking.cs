@@ -111,6 +111,7 @@ namespace MovieViewing
                     sessionList.Add(temp);
                 }//End while
                 MovieListing.useConnection().Close();
+                //
             }
         }
         public void generateSeats()
