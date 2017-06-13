@@ -28,22 +28,17 @@ namespace MovieViewing
         private void populateUserList()
         {
             cbEmployee.Items.Clear();
-
-           // SqlConnection conn = null;
             SqlDataReader rdr = null;
 
             try
             {
-                //conn = new SqlConnection(MovieListing.getConnString());
-               // conn.Open();
                 SqlCommand cmd = new SqlCommand("sp_showAllUsers", MovieListing.useConnection());
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
                 rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
-                {
-                   
+                { 
                     name = (rdr["Name"].ToString());
                     id = (rdr["Employee_ID"].ToString());
                     idName = id + name;
@@ -55,7 +50,6 @@ namespace MovieViewing
             {
                 MessageBox.Show(ex.Message);
             }
-            //cbEmployee.SelectedIndex = 0;
         }
 
         private void RemoveUser_Load_1(object sender, EventArgs e)
@@ -73,15 +67,11 @@ namespace MovieViewing
             if (cbEmployee.SelectedIndex > 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Remove User " + cbEmployee.SelectedItem.ToString() + "!", "Confirm", MessageBoxButtons.YesNo);
-                //MetroMessageBox.Show(this, "User Addedd", "Message");
                 if (dialogResult == DialogResult.Yes)
                 {
                     idName = new string(idName.Where(x => char.IsDigit(x)).ToArray());
-                    // SqlConnection conn = null;
                     try
                     {
-                        //conn = new SqlConnection(MovieListing.getConnString());
-                        //conn.Open();
                         SqlCommand cmd = new SqlCommand("sp_removeUser1", MovieListing.useConnection());
                         cmd.Parameters.Add(new SqlParameter("@employeeId", idName));
                         cmd.CommandType = CommandType.StoredProcedure;

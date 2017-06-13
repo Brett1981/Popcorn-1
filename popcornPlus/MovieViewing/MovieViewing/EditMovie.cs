@@ -29,8 +29,6 @@ namespace MovieViewing
         {
             txtMovieID.ReadOnly = true;
             tbPicturePath.ReadOnly = true;
-
-           // SqlConnection conn = null;
             SqlDataReader rdr = null;
             string unfixedTime = null;
             string fixedTime;
@@ -39,8 +37,6 @@ namespace MovieViewing
 
             try
             {
-               // conn = new SqlConnection(connectionString);
-               // conn.Open();
                 SqlCommand cmd = new SqlCommand("sp_viewEditMovie", MovieListing.useConnection());
                 cmd.Parameters.Add(new SqlParameter("@id", selectedMovieId));
                 cmd.CommandType = CommandType.StoredProcedure;

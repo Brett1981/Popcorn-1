@@ -27,6 +27,8 @@ namespace MovieViewing
         public static string Totalprice;
         public static string Date;
         public static string Seats;
+        public static string Auditorium;
+        DateTime today = DateTime.Today;
         public SeatBooking()
         {
             InitializeComponent();
@@ -144,7 +146,6 @@ namespace MovieViewing
         {
             using(MovieListing.useConnection())
             {
-                //conn.Open();
                 SqlCommand cmd = new SqlCommand("Select * from Movie where Movie_ID = "+MovieListing.MovieID, MovieListing.useConnection());
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -157,7 +158,7 @@ namespace MovieViewing
                 foreach (Session i in sessionList)
                 {
                     lblScreen.Text = i.AuditoriumID.ToString();
-                    lblDate.Text = i.Time;
+                    lblDate.Text = today.ToShortDateString()+"  "+ i.Time;
                 }
             }
             lblTitle.Text = movieTitle;
@@ -173,6 +174,7 @@ namespace MovieViewing
                 Totalprice = lblTotal.Text;
                 Date = lblDate.Text;
                 Seats = lblSeat.Text;
+                Auditorium= lblScreen.Text;
                 updateSeats();
                 Receipt myForm = new Receipt();
                 myForm.Show();

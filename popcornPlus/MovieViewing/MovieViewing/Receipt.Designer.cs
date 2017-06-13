@@ -66,7 +66,6 @@
             this.lblScreen.Name = "lblScreen";
             this.lblScreen.Size = new System.Drawing.Size(124, 20);
             this.lblScreen.TabIndex = 109;
-            this.lblScreen.Text = "A";
             this.lblScreen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblPrice

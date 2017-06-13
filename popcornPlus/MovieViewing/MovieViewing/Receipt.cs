@@ -13,6 +13,7 @@ namespace MovieViewing
         private StreamReader streamToPrint;
         string dir = @"C:\Users\cob11.LYTC\Desktop\GitHub\Popcorn\popcornPlus\Receipt.txt";
         private string[] lines = { "Title\n", "Screen\n", "RunTime", "Seat", "Date", "Ticket Price", "Total" };
+        DateTime today = DateTime.Today;
         public Receipt()
         {
             InitializeComponent();
@@ -25,9 +26,10 @@ namespace MovieViewing
             lblTitle.Text = SeatBooking.Title;
             lblSeat.Text = SeatBooking.Seats;
             lblPrice.Text = SeatBooking.Price;
-            lblDate.Text = SeatBooking.Date;
+            lblDate.Text = today.ToShortDateString()+"  "+SeatBooking.Date;
             lblRunTime.Text = SeatBooking.Runtime;
             lblTotal.Text = SeatBooking.Totalprice;
+            lblScreen.Text = SeatBooking.Auditorium;
         }
         Bitmap memoryImage;
         private void CaptureScreen()
