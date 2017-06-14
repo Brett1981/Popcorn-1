@@ -14,10 +14,7 @@ namespace MovieViewing
 {
     public partial class EditMovie : MetroFramework.Forms.MetroForm
     {
-        //connection string
-        private static string connectionString = MovieListing.getConnString();
         private string selectedMovieId = MovieListing.MovieID.ToString();
-        //selected movie       
         private string imagePath;
 
         public EditMovie()
@@ -85,7 +82,6 @@ namespace MovieViewing
                     cmd.ExecuteNonQuery();
                     rdr = cmd.ExecuteReader();
                     rdr.Close();
-
                     SqlCommand cmd2 = new SqlCommand("sp_addMovie2", MovieListing.useConnection());
                     cmd2.CommandType = CommandType.StoredProcedure;
 

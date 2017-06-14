@@ -8,7 +8,7 @@ Screen             1
 RunTime           02:22:00
 
 
-Seat                1
+Seat                25
 
 
 Date               13/06/2017  14:00:00

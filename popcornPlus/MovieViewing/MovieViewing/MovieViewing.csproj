@@ -117,7 +117,6 @@
     <Compile Include="SeatBooking.Designer.cs">
       <DependentUpon>SeatBooking.cs</DependentUpon>
     </Compile>
-    <Compile Include="SeatPlan.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="Ticket.cs">
       <SubType>Form</SubType>
